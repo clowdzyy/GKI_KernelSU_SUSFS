@@ -20,6 +20,30 @@ on:
         required: false
         type: string
   
+  # Added manual trigger option
+  workflow_dispatch:
+    inputs:
+      make_release:
+        description: 'Create release'
+        required: true
+        type: boolean
+        default: true
+      kernelsu_variant:
+        description: 'KernelSU variant'
+        required: true
+        type: string
+        default: 'kernelsu'
+      kernelsu_branch:
+        description: 'KernelSU branch'
+        required: true
+        type: string
+        default: 'main'
+      kernelsu_branch_other:
+        description: 'KernelSU branch (other)'
+        required: false
+        type: string
+        default: ''
+  
 jobs:
   build-kernel-a13-5-15-kernelsu-susfs:
     strategy:
